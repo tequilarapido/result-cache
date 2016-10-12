@@ -1,0 +1,39 @@
+{
+    "name": "tequilarapido/result-cache",
+    "description": "A simple and decoupled way to store resource consuming operations results in cache.",
+    "homepage": "https://github.com/tequilarapido/result-cache",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nassif Bourguig",
+            "email": "nbourguig@gmail.com",
+            "homepage": "https://github.com/nbourguig",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.3.*"
+    },
+    "require-dev": {
+        "mockery/mockery": "^0.9.5",
+        "phpunit/phpunit": "4.*",
+        "orchestra/testbench": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tequilarapido\\ResultCache\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tequilarapido\\ResultCache\\Test\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
