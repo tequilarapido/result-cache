@@ -28,5 +28,6 @@
     </logging>
     <php>
         <env name="APP_KEY" value="3fifSECXIvnK5r28GVIWUAxmbBSjAjkO"/>
+        <env name="CACHE_DRIVER" value="array"/>
     </php>
 </phpunit>
