@@ -25,12 +25,12 @@ class LocaleAwareResultCacheTest extends TestCase
         $this->assertEquals($this->helper->invokeMethod($sc, 'getCacheKey'), 'some.key::fr');
     }
 
-     /** @test */
-     public function it_returns_localized_key()
-     {
-         $sc = new SomeLocalAwareCache();
-         $this->assertEquals($this->helper->invokeMethod($sc, 'localizedKey', ['en']), 'some.key::en');
-     }
+    /** @test */
+    public function it_returns_localized_key()
+    {
+        $sc = new SomeLocalAwareCache();
+        $this->assertEquals($this->helper->invokeMethod($sc, 'localizedKey', ['en']), 'some.key::en');
+    }
 
     /** @test */
     public function it_returns_data()
@@ -73,6 +73,17 @@ class LocaleAwareResultCacheTest extends TestCase
         $this->assertEquals($sc->get(), 'en.some.data');
         $this->assertEquals(app('cache')->get('some.key::en'), 'en.some.data');
     }
+
+    /** @test */
+    public function it_can_forget_its_cache()
+    {
+        (new SomeLocalAwareCache)->get();
+
+        (new SomeLocalAwareCache)->forget();
+
+        $this->assertFalse(app('cache')->has('some.key::fr'));
+        $this->assertFalse(app('cache')->has('some.key::en'));
+    }
 }
 
 class SomeLocalAwareCache extends LocaleAwareResultCache
@@ -91,6 +102,6 @@ class SomeLocalAwareCache extends LocaleAwareResultCache
 
     public function data()
     {
-        return ($this->locale ?: app()->getLocale()).'.some.data';
+        return ($this->locale ?: app()->getLocale()) . '.some.data';
     }
 }
