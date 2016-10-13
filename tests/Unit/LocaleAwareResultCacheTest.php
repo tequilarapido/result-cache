@@ -91,6 +91,6 @@ class SomeLocalAwareCache extends LocaleAwareResultCache
 
     public function data()
     {
-        return ( $this->locale ?: app()->getLocale() ).'.some.data';
+        return ($this->locale ?: app()->getLocale()).'.some.data';
     }
 }

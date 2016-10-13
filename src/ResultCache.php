@@ -9,7 +9,7 @@ abstract class ResultCache
     /** @var int */
     protected $minutes = 60 * 24;
 
-    /** @var  CacheRepository */
+    /** @var CacheRepository */
     protected $cache;
 
     /**
