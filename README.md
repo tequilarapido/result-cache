@@ -40,6 +40,8 @@ $ composer require tequilarapido/result-cache
 * Create a class that extends ResultCache 
 
 ``` php      
+use Tequilarapido\ResultCache\ResultCache;
+
 class BooksCache extends ResultCache {
 
     public function key() {
@@ -84,6 +86,8 @@ For this kind of use case we need to extend the `LocaleAwareResultCache`, and de
 * Create a class that extends LocaleAwareResultCache 
 
 ``` php      
+use Tequilarapido\ResultCache\LocaleAwareResultCache;
+
 class BooksCache extends LocaleAwareResultCache {
 
     public function key() {
@@ -133,6 +137,8 @@ By default, cache is created for one day. You can override the protected `$minut
 your cache class to specify how much minutes you want your cache before it gets invalidated.
 
 ``` php
+use Tequilarapido\ResultCache\ResultCache;
+
 class BooksCache extends ResultCache {
 
     protected $minutes = 60; // One hour
