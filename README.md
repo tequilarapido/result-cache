@@ -1,4 +1,4 @@
-A simple way to return well formatted json responses in a Laravel application.
+A simple and decoupled way to store resource consuming operations results in cache.
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tequilarapido/result-cache.svg?style=flat-square)](https://packagist.org/packages/tequilarapido/result-cache)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
