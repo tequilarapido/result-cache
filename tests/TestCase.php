@@ -2,8 +2,6 @@
 
 namespace Tequilarapido\ResultCache\Test;
 
-use Tequilarapido\ResultCache\ResultCacheServiceProvider;
-
 class TestCase extends \Orchestra\Testbench\TestCase
 {
     /** @var TestHelper */
