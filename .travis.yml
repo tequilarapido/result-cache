@@ -1,9 +1,34 @@
 language: php
 
 php:
+  - 5.5.9
   - 5.6
   - 7.0
   - 7.1
+
+env:
+  - ILLUMINATE_VERSION=5.1.*
+
+matrix:
+  include:
+    - php: 5.5.9
+      env: ILLUMINATE_VERSION=5.2.*
+    - php: 5.6
+      env: ILLUMINATE_VERSION=5.2.*
+    - php: 5.6
+      env: ILLUMINATE_VERSION=5.3.*
+    - php: 7.0
+      env: ILLUMINATE_VERSION=5.2.*
+    - php: 7.0
+      env: ILLUMINATE_VERSION=5.3.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.2.*
+    - php: 7.1
+      env: ILLUMINATE_VERSION=5.3.*
+
+before_install:
+    - composer require "illuminate/framework:${ILLUMINATE_VERSION}" --no-update -v
+    - if [ "$ILLUMINATE_VERSION" == "5.1.*" ]; then composer require  "orchestra/testbench:^3.1" --dev --no-update -v; fi
 
 install:
   - travis_retry composer self-update
