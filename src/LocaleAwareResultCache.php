@@ -23,6 +23,7 @@ abstract class LocaleAwareResultCache extends ResultCache
      * Sets locale.
      *
      * @param $locale
+     *
      * @return LocaleAwareResultCache
      */
     public function setLocale($locale)
@@ -46,17 +47,16 @@ abstract class LocaleAwareResultCache extends ResultCache
      * Return cache key suffixed with locale.
      *
      * @param null|string $locale
+     *
      * @return string
      */
     protected function localizedKey($locale = null)
     {
-        return $this->key() . '::' . ($locale ?: app()->getLocale());
+        return $this->key().'::'.($locale ?: app()->getLocale());
     }
 
     /**
      * Removes cache for all locales.
-     *
-     * @return void
      */
     public function forget()
     {
@@ -64,5 +64,4 @@ abstract class LocaleAwareResultCache extends ResultCache
             $this->getCache()->forget($this->localizedKey($locale));
         }
     }
-
 }
