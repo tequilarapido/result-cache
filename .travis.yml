@@ -7,28 +7,28 @@ php:
   - 7.1
 
 env:
-  - ILLUMINATE_VERSION=5.1.*
+  - LARAVEL_VERSION=5.1.*
 
 matrix:
   include:
     - php: 5.5.9
-      env: ILLUMINATE_VERSION=5.2.*
+      env: LARAVEL_VERSION=5.2.*
     - php: 5.6
-      env: ILLUMINATE_VERSION=5.2.*
+      env: LARAVEL_VERSION=5.2.*
     - php: 5.6
-      env: ILLUMINATE_VERSION=5.3.*
+      env: LARAVEL_VERSION=5.3.*
     - php: 7.0
-      env: ILLUMINATE_VERSION=5.2.*
+      env: LARAVEL_VERSION=5.2.*
     - php: 7.0
-      env: ILLUMINATE_VERSION=5.3.*
+      env: LARAVEL_VERSION=5.3.*
     - php: 7.1
-      env: ILLUMINATE_VERSION=5.2.*
+      env: LARAVEL_VERSION=5.2.*
     - php: 7.1
-      env: ILLUMINATE_VERSION=5.3.*
+      env: LARAVEL_VERSION=5.3.*
 
 before_install:
-    - composer require "illuminate/framework:${ILLUMINATE_VERSION}" --no-update -v
-    - if [ "$ILLUMINATE_VERSION" == "5.1.*" ]; then composer require  "orchestra/testbench:^3.1" --dev --no-update -v; fi
+    - composer require "laravel/framework:${LARAVEL_VERSION}" --no-update -v
+    - if [ "$LARAVEL_VERSION" == "5.1.*" ]; then composer require  "orchestra/testbench:^3.1" --dev --no-update -v; fi
 
 install:
   - travis_retry composer self-update
