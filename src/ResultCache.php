@@ -7,7 +7,7 @@ use Illuminate\Contracts\Cache\Repository as CacheRepository;
 abstract class ResultCache
 {
     /** @var int */
-    protected $minutes = 60 * 24;
+    protected $minutes = 1440;
 
     /** @var CacheRepository */
     protected $cache;
