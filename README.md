@@ -56,12 +56,12 @@ class BooksCache extends ResultCache {
 }
 ```
 
-* Now you can simply call the get method to fetch cache. If the cache is invalid or not yet created, the operations will be executed.
+* Now you can simply call the get method to fetch from cache & If the cache is invalid or not yet created, the original operations will be executed.
 
 ``` php
 class SomeController {
     public function books() {
-          return (new BooksCache)->get();
+        return (new BooksCache)->get();
     }
 }
 ```
@@ -75,7 +75,7 @@ You can clean the cache using the `artisan cache:clear`
 You can also clean the cache programmatically using : 
 
 ``` php
-  (new BooksCache)->forget()
+(new BooksCache)->forget();
 ```
 
 ### Application locale aware cache
@@ -89,47 +89,28 @@ For this kind of use case we need to extend the `LocaleAwareResultCache`, and de
 use Tequilarapido\ResultCache\LocaleAwareResultCache;
 
 class BooksCache extends LocaleAwareResultCache {
-
-    public function key() {
-        return 'app.books.all';
-    }
     
-    public function data() {
-        // Some heavy / resources consuming operations
-        // We have access to $this->locale here to customize results according to locale
-        // ...
-        return $books;
-    }
+    // ...
     
-    public function  supportedLocales() {
+    public function supportedLocales() {
         return ['en', 'fr', 'ar']
     }
 }
 ```
 
-* Now you can simply call the get method to fetch cache. If the cache is invalid or not yet created, the operations will be executed.
+* Now like before you can simply call the get method to fetch from cache.
 
 ``` php
 class SomeController {
     public function books() {
-         return (new BooksCache)->setLocale($locale)->get();
+        $locale = 'en';
+        
+        return (new BooksCache)->setLocale($locale)->get();
     }
 }
 ```
 
-* Clean the cache
-
-The package uses the default cache driver defined in your laravel application.
-
-You can clean the cache using the `artisan cache:clear` 
-
-You can also clean the cache programmatically using : 
-
-``` php
-  (new BooksCache)->forget()
-```
-
-this will clean cache for all locales.
+* To clean cache for all locales, you can use `(new BooksCache)->forget();`
 
 ### Cache expiration
 
@@ -141,7 +122,7 @@ use Tequilarapido\ResultCache\ResultCache;
 
 class BooksCache extends ResultCache {
 
-    protected $minutes = 60; // One hour
+    protected $minutes = 60; // in minutes
     
     // ...
 }
